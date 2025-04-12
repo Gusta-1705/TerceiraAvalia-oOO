@@ -9,14 +9,15 @@ public abstract class EntidadeBase {
     // Atributos com encapsulamento adequados, protected porque qualquer classe no mesmo pacote tem acesso
     protected Long id;
     protected LocalDate dataCriacao;
-    // Atributo estático para contar a quantidade de IDs
-    // Atributos Estáticos
-    private static long contadorIds = 0;
+    // Atributo estático para contar a quantidade de IDs que foram criados
+    // Atributo Estático
+    protected static int contadorIdsCriados = 0;
 
     // Construtor para inicializar os atributos
-    public EntidadeBase() {
+    public EntidadeBase(Long id) {
+        this.id = id;
         this.dataCriacao = LocalDate.now();
-        this.id = contadorIds++;
+        contadorIdsCriados++;
     }
 
     // Métodos getters e setters
@@ -30,5 +31,10 @@ public abstract class EntidadeBase {
 
     public LocalDate getDataCriacao() {
         return dataCriacao;
+    }
+
+    // Método Estático
+    public static int getContadorIdsCriados(){
+        return contadorIdsCriados;
     }
 }
