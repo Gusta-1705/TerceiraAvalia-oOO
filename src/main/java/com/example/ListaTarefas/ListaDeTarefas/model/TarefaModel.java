@@ -14,9 +14,6 @@ public class TarefaModel extends EntidadeBase implements TarefaServico{
     private LocalDate dataConclusao;
     private LocalDate dataUltimaAtualizacao;
     private int prioridade;
-    // Atributo estático para geração automática de IDs únicos
-    // Atributos Estáticos
-    private static long contadorIds = 0;
 
     // Construtor padrão que inicializa os atributos
     public TarefaModel() {
@@ -24,7 +21,6 @@ public class TarefaModel extends EntidadeBase implements TarefaServico{
         super();
         this.concluida = false; // Por padrão, uma tarefa não está concluída
         this.dataUltimaAtualizacao = LocalDate.now();
-        this.id = contadorIds++;
         this.dataConclusao = null;
         this.prioridade = 0;
     }
@@ -37,7 +33,6 @@ public class TarefaModel extends EntidadeBase implements TarefaServico{
         this.descricao = descricao;
         this.concluida = false;
         this.dataUltimaAtualizacao = LocalDate.now();
-        this.id = contadorIds++;
         this.dataConclusao = dataConclusao;
         this.prioridade = prioridade;
     }
@@ -64,14 +59,6 @@ public class TarefaModel extends EntidadeBase implements TarefaServico{
 
     // Métodos getters e setters para acesso seguro aos atributos encapsulados
     // Encapsulamento
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
-
     public String getDescricao() {
         return descricao;
     }
@@ -86,14 +73,6 @@ public class TarefaModel extends EntidadeBase implements TarefaServico{
 
     public void setConcluida(boolean concluida) {
         this.concluida = concluida;
-    }
-
-    public LocalDate getDataCriacao() {
-        return dataCriacao;
-    }
-
-    public void setDataCriacao(LocalDate dataCriacao) {
-        this.dataCriacao = dataCriacao;
     }
 
     public LocalDate getDataConclusao() {
