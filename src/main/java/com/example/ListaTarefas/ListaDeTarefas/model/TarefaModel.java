@@ -4,6 +4,8 @@ package com.example.ListaTarefas.ListaDeTarefas.model;
 
 import java.time.LocalDate;
 
+import com.example.ListaTarefas.ListaDeTarefas.exception.ParametroInvalidoException;
+
 // Classe que representa uma tarefa, herdando de EntidadeBase e implementando TarefaServico
 public class TarefaModel extends EntidadeBase implements TarefaServico{
     // Atributos privados para garantir encapsulamento
@@ -15,18 +17,7 @@ public class TarefaModel extends EntidadeBase implements TarefaServico{
     private LocalDate dataUltimaAtualizacao;
     private int prioridade;
 
-    // Construtor padrão que inicializa os atributos
-    public TarefaModel(Long id) {
-        // Herança
-        super(id);
-        this.concluida = false; // Por padrão, uma tarefa não está concluída
-        this.dataUltimaAtualizacao = LocalDate.now();
-        this.dataConclusao = null;
-        this.prioridade = 0;
-    }
-
-    // Construtor sobrecarregado que recebe parâmetros para inicializar uma tarefa
-    // Sobrecarga
+    // Construtor que recebe parâmetros para inicializar uma tarefa
     public TarefaModel(Long id, String titulo, String descricao, LocalDate dataConclusao, int prioridade) {
         super(id);
         this.titulo = titulo;
@@ -88,6 +79,9 @@ public class TarefaModel extends EntidadeBase implements TarefaServico{
     }
 
     public void setPrioridade(int prioridade) {
+        if (prioridade < 1 || prioridade > 5) {
+            throw new ParametroInvalidoException("A prioridade deve estar entre 1 e 5.");
+        }
         this.prioridade = prioridade;
     }
 
