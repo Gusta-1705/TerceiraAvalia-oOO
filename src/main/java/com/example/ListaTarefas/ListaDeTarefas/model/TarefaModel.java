@@ -67,7 +67,7 @@ public class TarefaModel extends EntidadeBase implements TarefaServico{
         this.descricao = descricao;
     }
 
-    public boolean isConcluida() {
+    public boolean getConcluida() {
         return concluida;
     }
 
