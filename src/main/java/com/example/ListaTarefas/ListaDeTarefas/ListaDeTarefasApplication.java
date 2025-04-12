@@ -2,7 +2,10 @@
 
 // O código cobre todo o conteúdo.
 
-/* Lista todas as tarefas, adiciona uma tarefa, obtém uma tarefa já existente, exclui uma tarefa da lista, obtém uma tarefa específica, orderna tarefas por data de criação e prioridade, marca a tarefa como concluída quando finalizada informando a data de conclusão, obtém a última atualização da tarefa. */
+/* Lista todas as tarefas, adiciona uma tarefa, obtém uma tarefa já existente, exclui uma tarefa da lista, 
+obtém uma tarefa específica, orderna tarefas por data de criação e prioridade, 
+marca a tarefa como concluída quando finalizada informando a data de conclusão, 
+obtém a última atualização da tarefa. */
 
 package com.example.ListaTarefas.ListaDeTarefas;
 
