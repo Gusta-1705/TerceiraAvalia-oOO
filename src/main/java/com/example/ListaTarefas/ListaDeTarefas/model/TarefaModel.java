@@ -16,9 +16,9 @@ public class TarefaModel extends EntidadeBase implements TarefaServico{
     private int prioridade;
 
     // Construtor padrão que inicializa os atributos
-    public TarefaModel() {
+    public TarefaModel(Long id) {
         // Herança
-        super();
+        super(id);
         this.concluida = false; // Por padrão, uma tarefa não está concluída
         this.dataUltimaAtualizacao = LocalDate.now();
         this.dataConclusao = null;
@@ -27,8 +27,8 @@ public class TarefaModel extends EntidadeBase implements TarefaServico{
 
     // Construtor sobrecarregado que recebe parâmetros para inicializar uma tarefa
     // Sobrecarga
-    public TarefaModel(String titulo, String descricao, LocalDate dataConclusao, int prioridade) {
-        super();
+    public TarefaModel(Long id, String titulo, String descricao, LocalDate dataConclusao, int prioridade) {
+        super(id);
         this.titulo = titulo;
         this.descricao = descricao;
         this.concluida = false;
@@ -57,7 +57,7 @@ public class TarefaModel extends EntidadeBase implements TarefaServico{
         this.atualizarData();
     }
 
-    // Métodos getters e setters para acesso seguro aos atributos encapsulados
+    // Métodos Getters e Setters para acesso seguro aos atributos encapsulados
     // Encapsulamento
     public String getDescricao() {
         return descricao;
