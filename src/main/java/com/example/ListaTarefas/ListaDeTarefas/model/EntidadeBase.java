@@ -9,7 +9,7 @@ public abstract class EntidadeBase {
     // Atributos com encapsulamento adequados, protected porque qualquer classe no mesmo pacote tem acesso
     protected Long id;
     protected LocalDate dataCriacao;
-    // Atributo estático para geração automática de IDs únicos
+    // Atributo estático para contar a quantidade de IDs
     // Atributos Estáticos
     private static long contadorIds = 0;
 
