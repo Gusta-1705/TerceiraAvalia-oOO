@@ -40,11 +40,13 @@ public class TarefaModel extends EntidadeBase implements TarefaServico{
         this.dataUltimaAtualizacao = novaData;
     }
 
-    // Método sobrescrito da interface TarefaServico
+    // Método sobrescrito da interface TarefaServico para concluir a tarefa
     // Sobrescrita
     @Override
     public void concluirTarefa() {
+        // Define o status da tarefa como concluída
         this.concluida = true;
+        // Atualiza a data da última modificação, garantindo que a alteração seja registrada
         this.atualizarData();
     }
 
@@ -62,8 +64,13 @@ public class TarefaModel extends EntidadeBase implements TarefaServico{
         return concluida;
     }
 
+    // Método para definir se a tarefa foi concluída
     public void setConcluida(boolean concluida) {
+        // Atualiza o status de conclusão da tarefa
         this.concluida = concluida;
+        // Chama o método para atualizar a data da última modificação,
+        // garantindo que qualquer alteração seja registrada corretamente
+        atualizarData();
     }
 
     public LocalDate getDataConclusao() {
@@ -78,10 +85,14 @@ public class TarefaModel extends EntidadeBase implements TarefaServico{
         return prioridade;
     }
 
+    // Método para alterar e definir a prioridade da tarefa
     public void setPrioridade(int prioridade) {
+        // Verifica se a prioridade está dentro do intervalo permitido (1 a 5)
         if (prioridade < 1 || prioridade > 5) {
+            // Caso contrário, lança uma exceção personalizada informando o erro
             throw new ParametroInvalidoException("A prioridade deve estar entre 1 e 5.");
         }
+        // Se a prioridade for válida, atribui o valor ao atributo da classe
         this.prioridade = prioridade;
     }
 
@@ -101,3 +112,4 @@ public class TarefaModel extends EntidadeBase implements TarefaServico{
         this.dataUltimaAtualizacao = dataUltimaAtualizacao;
     }
 }
+
